@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كافيه نَفَس</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Cart overlay -->
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="إغلاق القائمة">
+    <i class="fas fa-times"></i>
+  </button>
+  <a href="#">الركن الخاص</a>
+  <a href="#">التحميص</a>
+  <a href="#">حكايتنا</a>
+  <a href="#">الفروع</a>
+</div>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <div class="logo">
+    <span class="logo-ar">نَفَس</span>
+    <span class="logo-en">nafas café</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">الركن الخاص</a></li>
+    <li><a href="#">التحميص</a></li>
+    <li><a href="#">حكايتنا</a></li>
+    <li><a href="#">الفروع</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-trigger" id="cartTriggerBtn" aria-label="فتح السلة">
+      <i class="fas fa-shopping-basket"></i>
+      <span class="badge" id="cartCount">0</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">since 2019 · specialty coffee</span>
+    </div>
+    <h1 class="hero-heading">
+      اشرب القهوة<br>
+      كما يجب<br>
+      <em>أن تكون</em>
+    </h1>
+    <p class="hero-body">
+      نحن لا نحمص البن فقط — نستخلص الروح من كل حبة لنصنع لك لحظةً تستحق أن تُعاش.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary">
+        <i class="fas fa-arrow-down"></i>
+        استكشف القائمة
+      </button>
+      <button class="btn-ghost">حكايتنا ←</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">12+</div>
+        <div class="stat-label">أصل حبوب مختارة</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">3</div>
+        <div class="stat-label">مستويات تحميص</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">18k</div>
+        <div class="stat-label">كوب يومياً</div>
+      </div>
+    </div>
+    <div class="hero-vertical-text">Crafted with intention · مصنوع بإتقان</div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-main" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900" alt="Coffee Art">
+    <div class="hero-badge">
+      <div class="hero-badge-emoji">☕</div>
+      <div class="hero-badge-title">الأكثر طلباً اليوم</div>
+      <div class="hero-badge-sub">لاتيه مخملي · ٢٫٢ ر.ع.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Specialty Coffee</span><span class="dot">·</span>
+    <span>حبوب مختارة بعناية</span><span class="dot">·</span>
+    <span>Single Origin</span><span class="dot">·</span>
+    <span>تحميص يومي طازج</span><span class="dot">·</span>
+    <span>Third Wave Coffee</span><span class="dot">·</span>
+    <span>تجربة لا تُنسى</span><span class="dot">·</span>
+    <span>Specialty Coffee</span><span class="dot">·</span>
+    <span>حبوب مختارة بعناية</span><span class="dot">·</span>
+    <span>Single Origin</span><span class="dot">·</span>
+    <span>تحميص يومي طازج</span><span class="dot">·</span>
+    <span>Third Wave Coffee</span><span class="dot">·</span>
+    <span>تجربة لا تُنسى</span><span class="dot">·</span>
+  </div>
+  <div class="marquee-track" aria-hidden="true">
+    <span>Specialty Coffee</span><span class="dot">·</span>
+    <span>حبوب مختارة بعناية</span><span class="dot">·</span>
+    <span>Single Origin</span><span class="dot">·</span>
+    <span>تحميص يومي طازج</span><span class="dot">·</span>
+    <span>Third Wave Coffee</span><span class="dot">·</span>
+    <span>تجربة لا تُنسى</span><span class="dot">·</span>
+    <span>Specialty Coffee</span><span class="dot">·</span>
+    <span>حبوب مختارة بعناية</span><span class="dot">·</span>
+    <span>Single Origin</span><span class="dot">·</span>
+    <span>تحميص يومي طازج</span><span class="dot">·</span>
+    <span>Third Wave Coffee</span><span class="dot">·</span>
+    <span>تجربة لا تُنسى</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- ── MENU ── -->
+<section class="menu-section" id="menu">
+  <div class="section-header reveal">
+    <div class="section-header-left">
+      <div class="section-overline">قائمة الموسم</div>
+      <h2 class="section-title">مزاجنا <em>اليوم</em></h2>
+    </div>
+    <div class="category-tabs">
+      <button class="tab-btn active" data-filter="all">الكل</button>
+      <button class="tab-btn" data-filter="hot">ساخن</button>
+      <button class="tab-btn" data-filter="cold">بارد</button>
+      <button class="tab-btn" data-filter="food">مأكولات</button>
+    </div>
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+
+    <div class="product-card reveal" data-category="hot">
+      <div class="card-image">
+        <img src="https://www.brighteyedbaker.com/wp-content/uploads/2024/07/Dulce-de-Leche-Latte-Recipe.jpg" alt="Latte">
+        <div class="card-tag">الأكثر طلباً</div>
+      </div>
+      <div class="card-body">
+        <div class="card-number">01</div>
+        <h3 class="card-name">لاتيه مخملي</h3>
+        <p class="card-desc">طبقات من الحليب الساخن مع دبل شوت إسبريسو كولومبي نقي.</p>
+        <div class="card-footer">
+          <div class="card-price"><small>ر.ع.</small>2.2</div>
+          <button class="add-btn add-to-cart-btn" data-name="لاتيه مخملي" data-price="2.2" data-icon="☕"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-category="hot" style="transition-delay:0.1s">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600" alt="Flat White">
+      </div>
+      <div class="card-body">
+        <div class="card-number">02</div>
+        <h3 class="card-name">فلات وايت</h3>
+        <p class="card-desc">قوة الإسبريسو مع نعومة الرغوة الحريرية الفاخرة.</p>
+        <div class="card-footer">
+          <div class="card-price"><small>ر.ع.</small>1.8</div>
+          <button class="add-btn add-to-cart-btn" data-name="فلات وايت" data-price="1.8" data-icon="🥛"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-category="cold" style="transition-delay:0.2s">
+      <div class="card-image">
+        <img src="https://tapcom-live.ams3.cdn.digitaloceanspaces.com/media/metabolic-b2c/products/iced-spanish-latte-Iced_Spanish_Latte4170.JPG" alt="Iced Coffee">
+        <div class="card-tag">موسمي</div>
+      </div>
+      <div class="card-body">
+        <div class="card-number">03</div>
+        <h3 class="card-name">آيس سبانش</h3>
+        <p class="card-desc">البرودة المثالية مع لمسة الحلاوة المتزنة التي تحتاجها.</p>
+        <div class="card-footer">
+          <div class="card-price"><small>ر.ع.</small>2.4</div>
+          <button class="add-btn add-to-cart-btn" data-name="آيس سبانش" data-price="2.4" data-icon="🧊"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-category="hot" style="transition-delay:0.05s">
+      <div class="card-image">
+        <img src="https://cdn.salla.sa/VVDqq/3a27d214-47b8-4d4c-8f05-ca44ce6f0187-1000x1000-q1cCMrBwYwtFaWFLuAkjN1BYbpH4P4ryzJwaNNTb.jpg" alt="V60">
+      </div>
+      <div class="card-body">
+        <div class="card-number">04</div>
+        <h3 class="card-name">V60 إثيوبي</h3>
+        <p class="card-desc">قهوة مقطرة بإيحاءات الفواكه والزهور من أعالي يرغاشيف.</p>
+        <div class="card-footer">
+          <div class="card-price"><small>ر.ع.</small>2.6</div>
+          <button class="add-btn add-to-cart-btn" data-name="V60 إثيوبي" data-price="2.6" data-icon="🌿"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-category="food" style="transition-delay:0.15s">
+      <div class="card-image">
+        <img src="https://www.lalevain.com/wp-content/uploads/2021/11/Xsant.jpg" alt="Croissant">
+        <div class="card-tag">جديد</div>
+      </div>
+      <div class="card-body">
+        <div class="card-number">05</div>
+        <h3 class="card-name">كروسان الزبدة</h3>
+        <p class="card-desc">مخبوزات طازجة يومياً، هشة من الخارج ناعمة من الداخل.</p>
+        <div class="card-footer">
+          <div class="card-price"><small>ر.ع.</small>1.4</div>
+          <button class="add-btn add-to-cart-btn" data-name="كروسان الزبدة" data-price="1.4" data-icon="🥐"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-category="food" style="transition-delay:0.25s">
+      <div class="card-image">
+        <img src="https://img.taste.com.au/3R9JzMW2/taste/2017/08/sticky-date-cheesecake-129544-1.jpg" alt="Cheesecake">
+      </div>
+      <div class="card-body">
+        <div class="card-number">06</div>
+        <h3 class="card-name">تشيز كيك تمر</h3>
+        <p class="card-desc">الحلويات الشرقية بلمسة عالمية حديثة لا تُقاوم.</p>
+        <div class="card-footer">
+          <div class="card-price"><small>ر.ع.</small>2.8</div>
+          <button class="add-btn add-to-cart-btn" data-name="تشيز كيك تمر" data-price="2.8" data-icon="🍰"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ABOUT STRIP ── -->
+<section class="about-strip">
+  <div class="about-image reveal">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600" alt="Barista">
+  </div>
+  <div class="about-text reveal">
+    <div class="section-overline">حكايتنا</div>
+    <h2 class="about-heading">
+      القهوة ليست<br>مجرد <em>مشروب</em>
+    </h2>
+    <p class="about-para">
+      بدأت نَفَس من شغف حقيقي بعلم التحميص وفن الاستخلاص. نختار كل حبة بعناية من أصولها، ونحمصها بمتجرنا يومياً لنضمن لك أقصى درجات النضارة في كل كوب.
+    </p>
+    <div class="about-features">
+      <div class="feature-item">
+        <div class="feature-icon">🌱</div>
+        <div>
+          <div class="feature-label">مصدر مباشر</div>
+          <div class="feature-desc">نتعاون مع مزارعين بالتسمية</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔥</div>
+        <div>
+          <div class="feature-label">تحميص يومي</div>
+          <div class="feature-desc">لا حبوب مخزنة — فقط طازج</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🏆</div>
+        <div>
+          <div class="feature-label">تقييم SCA</div>
+          <div class="feature-desc">معايير الجودة العالمية</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">♻️</div>
+        <div>
+          <div class="feature-label">مستدام بالكامل</div>
+          <div class="feature-desc">تغليف قابل للتحلل 100٪</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="logo-ar">نَفَس</span>
+        <span class="logo-en">nafas café</span>
+      </div>
+      <p>نشحن حبوبنا المحمصة لكل أنحاء العالم بكل حب. اجعل لكل لحظة نَفَس خاصاً يميزها.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-snapchat"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>تواصل معنا</h5>
+      <ul>
+        <li><a href="#">واتساب</a></li>
+        <li><a href="#">البريد الإلكتروني</a></li>
+        <li><a href="#">الدعم الفني</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>استكشف</h5>
+      <ul>
+        <li><a href="#">قائمة الطعام</a></li>
+        <li><a href="#">المتجر الإلكتروني</a></li>
+        <li><a href="#">طلب الجملة</a></li>
+        <li><a href="#">الفروع</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>موقعنا</h5>
+      <ul style="margin-bottom:16px">
+        <li><a href="#">شارع التحلية، الرياض</a></li>
+        <li><a href="#">مجمع السيف، دبي</a></li>
+      </ul>
+      <div class="footer-hours">
+        <strong>أوقات العمل</strong>
+        يومياً من ٦ صباحاً<br>حتى منتصف الليل
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© ٢٠٢٦ كافيه نَفَس — جميع الحقوق محفوظة</p>
+    <p>بُني بكل فخر في الوطن العربي 🤎</p>
+  </div>
+</footer>
+
+<!-- ── CART PANEL ── -->
+<div id="cartPanel">
+  <div class="cart-header">
+    <div class="cart-header-left">
+      <h2>سلّتي</h2>
+      <span class="cart-header-count" id="cartHeaderCount">٠ منتج</span>
+    </div>
+    <button class="cart-close-btn" id="cartCloseBtn" aria-label="إغلاق">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon"><i class="fas fa-shopping-basket"></i></div>
+      <p>السلة فارغة</p>
+      <small>أضف بعض المنتجات اللذيذة!</small>
+    </div>
+    <div id="cartItems"></div>
+
+    <div class="order-info-section" id="orderInfoSection" style="display:none">
+      <h4><i class="fas fa-user-circle"></i> تفاصيل الطلب</h4>
+
+      <div class="form-field">
+        <label>اسمك *</label>
+        <input type="text" id="customerName" placeholder="مثال: محمد العمري" maxlength="40">
+      </div>
+
+      <div class="form-field">
+        <label>نوع الطلب *</label>
+        <div class="type-selector">
+          <button class="type-btn active" id="btnDineIn" data-type="dine-in">
+            <i class="fas fa-utensils"></i> داخل المطعم
+          </button>
+          <button class="type-btn" id="btnTakeaway" data-type="takeaway">
+            <i class="fas fa-car"></i> استلام بالسيارة
+          </button>
+        </div>
+      </div>
+
+      <div class="conditional-section visible" id="dineInSection">
+        <div class="form-field">
+          <label>رقم الطاولة *</label>
+          <input type="number" id="tableNumber" placeholder="مثال: 5" min="1" max="99">
+        </div>
+      </div>
+
+      <div class="conditional-section" id="takeawaySection">
+        <div class="form-field">
+          <label>لوحة السيارة *</label>
+          <div class="plate-field">
+            <div class="plate-wrapper">
+              <input type="text" id="plateLetter" placeholder="أ ب ج" maxlength="3">
+              <div class="plate-label">الحروف</div>
+            </div>
+            <div class="plate-wrapper">
+              <input type="text" id="plateNumber" placeholder="1234" maxlength="4">
+              <div class="plate-label">الأرقام</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-summary">
+      <span class="label">عدد المنتجات</span>
+      <span class="value" id="footerCount">0</span>
+    </div>
+    <div class="cart-total-row">
+      <span class="total-label">الإجمالي</span>
+      <span class="total-value" id="cartTotal">0.000 ر.ع.</span>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn">
+      <i class="fas fa-check-circle"></i>
+      إتمام الطلب
+    </button>
+    <button class="clear-btn" id="clearBtn">
+      <i class="fas fa-trash-alt"></i> مسح السلة
+    </button>
+  </div>
+</div>
+
+<!-- Mobile sticky bar -->
+<div class="mobile-cart-bar" id="mobileCartBar" style="display:none">
+  <div class="mc-info">
+    <span class="mc-count" id="mbCount">0 منتج</span>
+    <span class="mc-total" id="mbTotal">0.000 ر.ع.</span>
+  </div>
+  <button id="mobileCartOpenBtn">
+    <i class="fas fa-shopping-basket"></i>
+    عرض السلة
+  </button>
+</div>
+
+<script type="module">
+
+import { initializeApp }          from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import { getAnalytics }           from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey:            "AIzaSyAfEM2DWNy8dS_b5lCvmja3bNlT13tpyqY",
+  authDomain:        "hayyiz-cafe.firebaseapp.com",
+  projectId:         "hayyiz-cafe",
+  storageBucket:     "hayyiz-cafe.firebasestorage.app",
+  messagingSenderId: "210435234772",
+  appId:             "1:210435234772:web:76e433383200d79c7fd441",
+  measurementId:     "G-YR2G8V5G1T"
+};
+
+const app       = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db        = getDatabase(app);
+
+/* ── State ── */
+let cart      = [];
+let orderType = 'dine-in';
+
+/* ── Currency helper ── */
+function formatOMR(amount) {
+  return parseFloat(amount).toFixed(3) + ' ر.ع.';
+}
+
+/* ── Custom cursor ── */
+const cursor     = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+
+if (cursor && cursorRing) {
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+  function animateCursor() {
+    cursor.style.left = mx + 'px';
+    cursor.style.top  = my + 'px';
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    cursorRing.style.left = rx + 'px';
+    cursorRing.style.top  = ry + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  document.querySelectorAll('a, button, [data-filter]').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+}
+
+/* ── Navbar scroll ── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── Mobile menu ── */
+const mobileMenu      = document.getElementById('mobileMenu');
+const hamburger       = document.getElementById('hamburger');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+function openMobileMenu() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', openMobileMenu);
+mobileMenuClose.addEventListener('click', closeMobileMenu);
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+
+/* ── Category filter ── */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.filter;
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.classList.toggle('hidden', cat !== 'all' && card.dataset.category !== cat);
+    });
+  });
+});
+
+/* ── Cart open / close ── */
+const cartPanel   = document.getElementById('cartPanel');
+const cartOverlay = document.getElementById('cartOverlay');
+
+function openCart() {
+  cartPanel.classList.add('open');
+  cartOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  cartPanel.classList.remove('open');
+  cartOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('cartTriggerBtn').addEventListener('click', openCart);
+document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+document.getElementById('mobileCartOpenBtn').addEventListener('click', openCart);
+cartOverlay.addEventListener('click', closeCart);
+
+/* ── Order type toggle ── */
+const btnDineIn   = document.getElementById('btnDineIn');
+const btnTakeaway = document.getElementById('btnTakeaway');
+const dineInSec   = document.getElementById('dineInSection');
+const takeawaySec = document.getElementById('takeawaySection');
+
+btnDineIn.addEventListener('click', () => {
+  orderType = 'dine-in';
+  btnDineIn.classList.add('active');
+  btnTakeaway.classList.remove('active');
+  dineInSec.classList.add('visible');
+  takeawaySec.classList.remove('visible');
+});
+
+btnTakeaway.addEventListener('click', () => {
+  orderType = 'takeaway';
+  btnTakeaway.classList.add('active');
+  btnDineIn.classList.remove('active');
+  takeawaySec.classList.add('visible');
+  dineInSec.classList.remove('visible');
+});
+
+/* ── Add to cart ── */
+function addToCart(name, price, icon) {
+  const existing = cart.find(i => i.name === name);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ name, price: Number(price), icon: icon || '☕', quantity: 1 });
+  }
+  renderCart();
+  bumpBadge();
+  openCart();
+}
+
+document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    addToCart(btn.dataset.name, btn.dataset.price, btn.dataset.icon);
+  });
+});
+
+/* ── Quantity controls ── */
+function changeQty(index, delta) {
+  cart[index].quantity += delta;
+  if (cart[index].quantity <= 0) cart.splice(index, 1);
+  renderCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function clearCart() {
+  if (!cart.length) return;
+  cart = [];
+  renderCart();
+}
+
+document.getElementById('clearBtn').addEventListener('click', clearCart);
+
+/* ── Badge bump ── */
+function bumpBadge() {
+  const badge = document.getElementById('cartCount');
+  badge.classList.remove('bump');
+  void badge.offsetWidth;
+  badge.classList.add('bump');
+  setTimeout(() => badge.classList.remove('bump'), 300);
+}
+
+/* ── Render cart ── */
+function renderCart() {
+  const itemsEl     = document.getElementById('cartItems');
+  const emptyEl     = document.getElementById('cartEmpty');
+  const footerEl    = document.getElementById('cartFooter');
+  const infoSec     = document.getElementById('orderInfoSection');
+  const countBadge  = document.getElementById('cartCount');
+  const headerCount = document.getElementById('cartHeaderCount');
+  const footerCount = document.getElementById('footerCount');
+  const totalEl     = document.getElementById('cartTotal');
+  const mbBar       = document.getElementById('mobileCartBar');
+  const mbCount     = document.getElementById('mbCount');
+  const mbTotal     = document.getElementById('mbTotal');
+
+  let total = 0, totalQty = 0;
+  itemsEl.innerHTML = '';
+
+  cart.forEach((item, i) => {
+    const lineTotal = parseFloat((item.price * item.quantity).toFixed(3));
+    total    += lineTotal;
+    totalQty += item.quantity;
+
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <div class="cart-item-icon">${item.icon}</div>
+      <div class="cart-item-info">
+        <strong>${item.name}</strong>
+        <span>${formatOMR(item.price)} × ${item.quantity} = ${formatOMR(lineTotal)}</span>
+      </div>
+      <div class="cart-item-controls">
+        <button class="qty-btn remove" data-action="remove" data-index="${i}" title="حذف">
+          <i class="fas fa-trash" style="font-size:.6rem"></i>
+        </button>
+        <button class="qty-btn" data-action="minus" data-index="${i}">−</button>
+        <span class="qty-num">${item.quantity}</span>
+        <button class="qty-btn" data-action="plus" data-index="${i}">+</button>
+      </div>`;
+    itemsEl.appendChild(div);
+  });
+
+  itemsEl.querySelectorAll('[data-action]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.dataset.index);
+      if      (btn.dataset.action === 'remove') removeItem(idx);
+      else if (btn.dataset.action === 'minus')  changeQty(idx, -1);
+      else if (btn.dataset.action === 'plus')   changeQty(idx, 1);
+    });
+  });
+
+  const isEmpty = cart.length === 0;
+  emptyEl.style.display  = isEmpty ? 'flex'  : 'none';
+  footerEl.style.display = isEmpty ? 'none'  : 'block';
+  infoSec.style.display  = isEmpty ? 'none'  : 'block';
+
+  const totalRounded = parseFloat(total.toFixed(3));
+
+  countBadge.textContent  = totalQty;
+  headerCount.textContent = totalQty + ' منتج';
+  footerCount.textContent = totalQty + ' منتج';
+  totalEl.textContent     = formatOMR(totalRounded);
+
+  mbBar.style.display = (!isEmpty && window.innerWidth <= 768) ? 'flex' : 'none';
+  mbCount.textContent = totalQty + ' منتج';
+  mbTotal.textContent = formatOMR(totalRounded);
+}
+
+/* ── Checkout ── */
+document.getElementById('checkoutBtn').addEventListener('click', () => {
+  if (!cart.length) return;
+
+  const customerName = document.getElementById('customerName').value.trim();
+  const tableNumber  = document.getElementById('tableNumber').value.trim();
+  const plateLetter  = document.getElementById('plateLetter').value.trim();
+  const plateNumber  = document.getElementById('plateNumber').value.trim();
+
+  if (!customerName) {
+    alert('من فضلك أدخل اسمك.');
+    document.getElementById('customerName').focus();
+    return;
+  }
+
+  if (orderType === 'dine-in' && !tableNumber) {
+    alert('من فضلك أدخل رقم الطاولة.');
+    document.getElementById('tableNumber').focus();
+    return;
+  }
+
+  if (orderType === 'takeaway' && (!plateLetter || !plateNumber)) {
+    alert('من فضلك أدخل لوحة السيارة كاملة.');
+    (!plateLetter ? document.getElementById('plateLetter') : document.getElementById('plateNumber')).focus();
+    return;
+  }
+
+  const total = parseFloat(cart.reduce((sum, i) => sum + i.price * i.quantity, 0).toFixed(3));
+
+  const orderData = {
+    customerName,
+    orderType,
+    currency:    'OMR',
+    tableNumber: orderType === 'dine-in' ? tableNumber : null,
+    carPlate:    orderType === 'takeaway' ? { letters: plateLetter.toUpperCase(), numbers: plateNumber } : null,
+    items:       cart,
+    total,
+    status:      'new',
+    timestamp:   Date.now()
+  };
+
+  push(ref(db, 'orders'), orderData)
+    .then(() => {
+      alert(`شكراً ${customerName}! تم إرسال طلبك ✅`);
+      clearCart();
+      closeCart();
+      ['customerName', 'tableNumber', 'plateLetter', 'plateNumber'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+    })
+    .catch(err => console.error('خطأ في إرسال الطلب:', err));
+});
+
+/* ── Scroll reveal ── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ── ESC ── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeCart(); closeMobileMenu(); }
+});
+
+window.addEventListener('resize', renderCart, { passive: true });
+renderCart();
+
+</script>
+</body>
+</html>
